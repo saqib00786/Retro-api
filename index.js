@@ -3,11 +3,13 @@ const env = require('dotenv')
 const { userRoutes } = require('./routes/UserRoutes.js')
 const { taskRoutes } = require('./routes/TaskRoutes.js')
 const { sprintBoardRoutes } = require('./routes/SprintRoutes.js')
-const app = express()
+const connectDB = require('./configuration/dbConnection.js')
 
 env.config()
 
 
+connectDB()
+const app = express()
 const PORT = process.env.PORT || 5000
 
 app.use(express.json())
